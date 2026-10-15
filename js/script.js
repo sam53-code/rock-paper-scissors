@@ -109,7 +109,6 @@ containerOptions.addEventListener("click", (e) => {
 
 updateScore();
 
-//Declaring overall winner
 //reset game paly
 
 const resetGame = document.querySelector(".resetGame");
