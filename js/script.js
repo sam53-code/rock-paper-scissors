@@ -1,5 +1,7 @@
 // using DOM for the UI for practicing DOM manipulation
-const options = ["Rock", "Paper", "Scissors"]; //Refactor to array for easy code readability
+//Refactor to array for easy code readability
+
+const options = ["Rock", "Paper", "Scissors"];
 
 //Create game title and selection buttons
 
@@ -39,8 +41,6 @@ function getComputerChoice() {
   return computerSelection;
 }
 
-//console.log(getComputerChoice()); //testing computer selection
-
 // Deciding the winner
 
 let humanScore = 0;
@@ -68,6 +68,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
 // Update scores
+
 function updateScore() {
   scoreDisplay.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
 }
@@ -90,6 +91,8 @@ function winner() {
   }
 }
 
+//event handler for human choice
+
 containerOptions.addEventListener("click", (e) => {
   const button = e.target.closest("button");
 
@@ -98,8 +101,8 @@ containerOptions.addEventListener("click", (e) => {
   const humanChoice = getHumanChoice(button.textContent.toLowerCase());
   const computerChoice = getComputerChoice();
 
-  console.log("Human:", humanChoice);
-  console.log("Computer:", computerChoice);
+  // console.log("Human:", humanChoice);
+  // console.log("Computer:", computerChoice);
 
   resultDisplay.textContent = playRound(humanChoice, computerChoice);
 
@@ -113,7 +116,7 @@ updateScore();
 
 const resetGame = document.querySelector(".resetGame");
 const reset = document.createElement("button");
-reset.textContent = "Play another round";
+reset.textContent = "Play Again";
 resetGame.appendChild(reset);
 
 reset.addEventListener("click", (e) => {
