@@ -24,20 +24,28 @@ const winnerDisplay = document.createElement("h2");
 
 gameTitle.append(resultDisplay, scoreDisplay, winnerDisplay);
 
-function getComputerChoice() {
-  const options = Math.floor(Math.random() * 3 + 1);
+//getting human choice
 
-  const computerChoice =
-    options === 1 ? option1 : options === 2 ? option2 : option3;
-
-  return computerChoice;
+function getHumanChoice(choice) {
+  return choice;
 }
+
+//get computer choice
+
+function getComputerChoice() {
+  const randomIndex = Math.floor(Math.random() * options.length);
+  const computerSelection = options[randomIndex].toLowerCase();
+
+  return computerSelection;
+}
+
 //console.log(getComputerChoice()); //testing computer selection
 
 // Deciding the winner
 
 let humanScore = 0;
 let computerScore = 0;
+let gameOver = false;
 
 function playRound(humanChoice, computerChoice) {
   if (
@@ -45,17 +53,40 @@ function playRound(humanChoice, computerChoice) {
     (computerChoice === "paper" && humanChoice === "rock") ||
     (computerChoice === "scissors" && humanChoice === "paper")
   ) {
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
     computerScore++;
+    return `You lose! ${computerChoice} beats ${humanChoice}`;
   } else if (
     (computerChoice === "scissors" && humanChoice === "rock") ||
     (computerChoice === "rock" && humanChoice === "paper") ||
     (computerChoice === "paper" && humanChoice === "scissors")
   ) {
-    console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
     humanScore++;
+    return `You Win! ${humanChoice} beats ${computerChoice}`;
   } else {
-    console.log("Its a tie!");
+    return "Its a tie!";
+  }
+}
+
+// Update scores
+function updateScore() {
+  scoreDisplay.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+}
+
+//Check overall winner
+
+function winner() {
+  if (humanScore >= 5) {
+    gameOver = true;
+    winnerDisplay.textContent = "Congratulations! You won!";
+  } else if (computerScore >= 5) {
+    gameOver = true;
+    winnerDisplay.textContent = "Game over! The computer won.";
+  }
+
+  if (gameOver) {
+    containerOptions.querySelectorAll("button").forEach((button) => {
+      button.disabled = true;
+    });
   }
 }
 
