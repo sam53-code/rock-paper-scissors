@@ -2,7 +2,7 @@
 
 # Rock Paper Scissors
 
-A simple browser-based Rock Paper Scissors game built with HTML, CSS, and JavaScript to practise DOM manipulation and JavaScript fundamentals.
+A simple browser-based Rock Paper Scissors game built with HTML, CSS, and JavaScript to practice DOM manipulation and JavaScript fundamentals.
 
 ## Features
 
@@ -11,7 +11,7 @@ A simple browser-based Rock Paper Scissors game built with HTML, CSS, and JavaSc
 - Automatic score tracking and round results.
 - First player to reach 5 points wins.
 - Game-over state disables selection buttons.
-- **Play Again** button resets scores and restarts the game.
+- Play Again button resets scores and restarts the game.
 
 ## Technologies
 
@@ -24,8 +24,8 @@ A simple browser-based Rock Paper Scissors game built with HTML, CSS, and JavaSc
 ```text
 rock-paper-scissors/
 ├── index.html
-├── style.css
-├── script.js
+├── css/style.css
+├── js/script.js
 └── README.md
 ```
 
@@ -34,9 +34,9 @@ rock-paper-scissors/
 1. Open `index.html` in your browser.
 2. Select Rock, Paper, or Scissors.
 3. Play until you or the computer reaches 5 points.
-4. Click **Play Again** to start a new game.
+4. Click Play Again to start a new game.
 
-## Concepts Practised
+## Concepts Practiced
 
 - Variables, arrays, and functions
 - Conditional statements
