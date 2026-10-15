@@ -1,8 +1,28 @@
-// Getting random computer selection
+// using DOM for the UI for practicing DOM manipulation
+const options = ["Rock", "Paper", "Scissors"]; //Refactor to array for easy code readability
 
-const option1 = "rock";
-const option2 = "paper";
-const option3 = "scissors";
+//Create game title and selection buttons
+
+const gameTitle = document.querySelector(".title");
+const title = document.createElement("h1");
+title.textContent = "Rock Paper & Scissors";
+gameTitle.appendChild(title);
+const containerOptions = document.querySelector(".container");
+
+options.forEach((option) => {
+  const button = document.createElement("button");
+  button.textContent = option;
+  button.classList.add("btn");
+
+  containerOptions.appendChild(button);
+});
+
+// Create result and score displays
+const resultDisplay = document.createElement("p");
+const scoreDisplay = document.createElement("p");
+const winnerDisplay = document.createElement("h2");
+
+gameTitle.append(resultDisplay, scoreDisplay, winnerDisplay);
 
 function getComputerChoice() {
   const options = Math.floor(Math.random() * 3 + 1);
